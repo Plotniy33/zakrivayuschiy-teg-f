@@ -14,7 +14,7 @@ function serve() {
 
 function html() {
   return gulp
-    .src('src/**/*.html')
+    .src('**/*.html')
     .pipe(plumber())
     .pipe(gulp.dest('dist/'))
     .pipe(browserSync.reload({ stream: true }));
@@ -22,7 +22,7 @@ function html() {
 
 function css() {
   return gulp
-    .src('src/styles/**/*.css')
+    .src('styles/**/*.css')
     .pipe(plumber())
     .pipe(concat('bundle.css'))
     .pipe(gulp.dest('dist/'))
@@ -31,14 +31,14 @@ function css() {
 
 function images() {
   return gulp
-    .src('src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}')
+    .src('images/**/*.{jpg,png,svg,gif,ico,webp,avif}')
     .pipe(gulp.dest('dist/images'))
     .pipe(browserSync.reload({ stream: true }));
 }
 
 function fonts() {
   return gulp
-    .src('src/fonts/**/*.{woff,woff2}')
+    .src('fonts/**/*.{woff,woff2}')
     .pipe(gulp.dest('dist/fonts'))
     .pipe(browserSync.reload({ stream: true }));
 }
@@ -48,10 +48,10 @@ function clean() {
 }
 
 function watchFiles() {
-  gulp.watch(['src/**/*.html'], html);
-  gulp.watch(['src/blocks/**/*.css'], css);
-  gulp.watch(['src/images/**/*.{jpg,png,svg,gif,ico,webp,avif}'], images);
-  gulp.watch(['src/fonts/**/*.{woff,woff2}'], fonts);
+  gulp.watch(['**/*.html'], html);
+  gulp.watch(['blocks/**/*.css'], css);
+  gulp.watch(['images/**/*.{jpg,png,svg,gif,ico,webp,avif}'], images);
+  gulp.watch(['fonts/**/*.{woff,woff2}'], fonts);
 }
 
 const build = gulp.series(clean, gulp.parallel(html, css, images, fonts));

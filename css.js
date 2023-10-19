@@ -4,7 +4,7 @@ const plumber = require('gulp-plumber');
 
 function css() {
   return gulp
-    .src('src/**/*.css')
+    .src('**/*.css')
     .pipe(plumber())
     .pipe(concat('bundle.css'))
     .pipe(gulp.dest('dist/'));
