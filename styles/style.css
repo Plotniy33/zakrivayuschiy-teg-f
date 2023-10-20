@@ -88,6 +88,7 @@
   content: '▶';
   position: absolute;
   inset-inline-start: -18px;
+  inset-block-end: 2;
   animation-name: navPointer;
   animation-duration: 0.5s;
   animation-timing-function: easy-in-out;
@@ -134,13 +135,14 @@
   gap: 50px;
 }
 
-.section {
+.article {
+  display: grid;
   font-family: var(--font-family-main);
   background-color: var(--bg-color);
   border: 2px solid currentColor;
 }
 
-.section__title {
+.article__title {
   display: flex;
   font-size: 1.125rem;
   font-variation-settings: 'wght' var(--font-weight-title);
@@ -148,10 +150,6 @@
   line-height: normal;
   padding-top: 4.5px;
   padding-bottom: 3.5px;
-}
-
-.article {
-  display: grid;
 }
 
 .card_image {
@@ -243,7 +241,7 @@
 
 .button {
   position: relative;
-  border: 2px solid currentColor;
+  border: 2px solid var(--accent-color);
   background-color: var(--bg-color);
   padding: 0;
   cursor: pointer;
@@ -412,6 +410,8 @@
   padding-inline: 40px;
   inline-size: 341px;
   max-inline-size: 357px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--accent-color);
 }
 
 .modal__title {
@@ -419,12 +419,14 @@
   font-size: 14px;
   line-height: 1.5;
   text-transform: uppercase;
+  color: var(--accent-color);
 }
 
 .modal_floppy {
   inline-size: 39px;
   block-size: 39px;
   align-self: center;
+  fill: var(--accent-color);
 }
 
 .modal__button {
@@ -438,4 +440,12 @@
 
 .modal::backdrop {
   background-color: rgb(0 0 0 / 0.75);
+}
+
+@media (width > 375px) {
+
+  .floppy {
+    inline-size: 21px;
+    block-size: 21px;
+  }
 }
